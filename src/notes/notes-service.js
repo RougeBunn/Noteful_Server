@@ -13,7 +13,7 @@ const NotesService = {
         });
     },
   
-    getNoteByID(knex, id) {
+    getNoteById(knex, id) {
       return knex
         .from('noteful_notes')
         .select('*')
