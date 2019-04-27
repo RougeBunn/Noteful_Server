@@ -1,7 +1,7 @@
 INSERT INTO noteful_folders (id, name)  
 VALUES
-  (1, 'Reddit'),
-  (2, 'Documents'),
-  (3, 'Memes'); 
+  (1, 'Important'),
+  (2, 'Super'),
+  (3, 'Spangley'); 
 
   ALTER SEQUENCE noteful_folders RESTART WITH 4; 

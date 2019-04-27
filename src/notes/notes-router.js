@@ -25,7 +25,8 @@ notesRouter
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { name, folder_id, content } = req.body;
+    const { name, folderId: folder_id, content } = req.body;
+    console.log(req.body)
     if(!name){
       return res.status(400).json({
         error: { message: 'Missing name in request' } 
@@ -84,7 +85,7 @@ notesRouter
       .catch(next);
   })
   .patch(jsonParser, (req, res, next) => {
-    const { name, folder_id, content } = req.body;
+    const { name, folderId: folder_id, content } = req.body;
     if(!name) {
       return res.status(400).json({
         error: {
