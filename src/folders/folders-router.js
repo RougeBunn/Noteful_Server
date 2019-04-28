@@ -19,7 +19,6 @@ foldersRouter
       .then(folders =>{
         res.json(folders.map(serializeFolder));
       })
-      console.log(res.body)
       .catch(next); 
   })
   .post(jsonParser, (req, res, next) => {
@@ -41,7 +40,6 @@ foldersRouter
           .location(path.posix.join(req.originalUrl, `/${folder.id}`))
           .json(serializeFolder(folder));
       })
-      console.log(res.body)
       .catch(next); 
   });
 
@@ -61,7 +59,6 @@ foldersRouter
         res.folder = folder;
         next();  
       })
-      console.log(res.body)
       .catch(next); 
   })
   .get((req, res, next) => {
@@ -75,7 +72,6 @@ foldersRouter
       .then( () =>{
         res.status(204).end();
       })
-      console.log(res.body)
       .catch(next);
   })
   .patch(jsonParser, (req, res, next) => {
@@ -95,7 +91,6 @@ foldersRouter
       .then( () => {
         res.status(204).end(); 
       })
-      console.log(res.body)
       .catch(next); 
   });
 

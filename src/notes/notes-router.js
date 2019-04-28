@@ -22,7 +22,6 @@ notesRouter
       .then(notes =>{
         res.json(notes.map(serializeNote));
       })
-      console.log(res.body)
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
@@ -51,7 +50,6 @@ notesRouter
           .location(path.posix.join(req.originalUrl, `/${note.id}`))
           .json(serializeNote(note));
       })
-      console.log(res.body)
       .catch(next); 
   });
 
@@ -71,7 +69,6 @@ notesRouter
         res.note = note;
         next();  
       })
-      console.log(res.body)
       .catch(next); 
   })
   .get((req, res, next) => {
@@ -118,7 +115,6 @@ notesRouter
       .then( () => {
         res.status(204).end(); 
       })
-      console.log(res.body)
       .catch(next); 
   });
 
