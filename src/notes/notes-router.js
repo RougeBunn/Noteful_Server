@@ -23,7 +23,6 @@ notesRouter
         res.json(notes.map(serializeNote));
       })
       .catch(next);
-      res.status(err.statusCode).send(err.message);
   })
   .post(jsonParser, (req, res, next) => {
     const { name, folder_id, content } = req.body;
@@ -52,7 +51,6 @@ notesRouter
           .json(serializeNote(note));
       })
       .catch(next);
-      res.status(err.statusCode).send(err.message); 
   });
 
 notesRouter
@@ -72,7 +70,6 @@ notesRouter
         next();  
       })
       .catch(next);
-      res.status(err.statusCode).send(err.message); 
   })
   .get((req, res, next) => {
     res.json(serializeNote(res.note));
@@ -86,7 +83,6 @@ notesRouter
         res.status(204).end();
       })
       .catch(next);
-      res.status(err.statusCode).send(err.message);
   })
   .patch(jsonParser, (req, res, next) => {
     const { name, folder_id, content } = req.body;
@@ -120,7 +116,6 @@ notesRouter
         res.status(204).end(); 
       })
       .catch(next);
-      res.status(err.statusCode).send(err.message);
   });
 
 module.exports = notesRouter;
