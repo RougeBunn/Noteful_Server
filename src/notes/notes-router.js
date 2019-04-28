@@ -22,7 +22,8 @@ notesRouter
       .then(notes =>{
         res.json(notes.map(serializeNote));
       })
-      .catch(next,  console.log(res.body));
+      .catch(next);
+      res.status(err.statusCode).send(err.message);
   })
   .post(jsonParser, (req, res, next) => {
     const { name, folder_id, content } = req.body;
@@ -50,7 +51,8 @@ notesRouter
           .location(path.posix.join(req.originalUrl, `/${note.id}`))
           .json(serializeNote(note));
       })
-      .catch(next,  console.log(res.body)); 
+      .catch(next);
+      res.status(err.statusCode).send(err.message); 
   });
 
 notesRouter
@@ -69,7 +71,8 @@ notesRouter
         res.note = note;
         next();  
       })
-      .catch(next,  console.log(res.body)); 
+      .catch(next);
+      res.status(err.statusCode).send(err.message); 
   })
   .get((req, res, next) => {
     res.json(serializeNote(res.note));
@@ -82,7 +85,8 @@ notesRouter
       .then( () =>{
         res.status(204).end();
       })
-      .catch(next,  console.log(res.body));
+      .catch(next);
+      res.status(err.statusCode).send(err.message);
   })
   .patch(jsonParser, (req, res, next) => {
     const { name, folder_id, content } = req.body;
@@ -115,7 +119,8 @@ notesRouter
       .then( () => {
         res.status(204).end(); 
       })
-      .catch(next,  console.log(res.body));
+      .catch(next);
+      res.status(err.statusCode).send(err.message);
   });
 
 module.exports = notesRouter;
