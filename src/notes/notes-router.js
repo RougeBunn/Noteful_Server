@@ -56,9 +56,10 @@ notesRouter
 notesRouter
   .route('/:note_id')
   .all((req, res, next) => {
+    console.log(req.params.note_id)
     NotesService.getNoteById(
       req.app.get('db'),
-      req.param.note_id
+      req.params.note_id
     )
       .then (note =>{
         if (!note){
