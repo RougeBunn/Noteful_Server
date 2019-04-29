@@ -56,7 +56,6 @@ notesRouter
 notesRouter
   .route('/:note_id')
   .all((req, res, next) => {
-    console.log(req.params.note_id)
     NotesService.getNoteById(
       req.app.get('db'),
       req.params.note_id
@@ -76,7 +75,6 @@ notesRouter
     res.json(serializeNote(res.note));
   })
   .delete((req,res,next) => {
-    console.log('delete reached')
     NotesService.deleteNote(
       req.app.get('db'),
       req.params.note_id
